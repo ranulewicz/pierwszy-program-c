@@ -1,47 +1,59 @@
 #include <stdio.h>
-int mnoz(int a, int b){
-    printf("Wynik mnozenia: %i\n", a * b);
-    return a * b;
-}
-int dodaj(int a, int b){
-    printf("Wynik dodawania: %i\n", a + b);
-    return a + b;
-}
-int odejmij(int a, int b){
-    printf("Wynik odejmowania: %i\n", a - b);
-    return a - b;
-}
-int dziel(int a, int b){
-    printf("Wynik dzielenia: %i i reszta: %i\n", a / b, a % b);
-    return a / b;
+
+void mnoz(double a, double b) {
+    printf("Wynik mnozenia: %lf\n", a * b);
+
 }
 
-int licz(int a, int b, char wybor){
-    if(wybor == '*'){
+void dodaj(double a, double b) {
+    printf("Wynik dodawania: %lf\n", a + b);
+
+}
+
+void odejmij(double a, double b) {
+    printf("Wynik odejmowania: %lf\n", a - b);
+
+}
+
+void dziel(double a, double b) {
+
+    if (b == 0.0) {
+        puts("nie dzielimy przez zero!");
+
+    } else {
+        printf("Wynik dzielenia:  %lf\n", a / b);
+
+    }
+}
+
+double licz(double a, double b, double wybor) {
+    if (wybor == '*') {
         mnoz(a, b);
-    }else if(wybor == '+'){
+    } else if (wybor == '+') {
         dodaj(a, b);
-    }else if(wybor == '-'){
+    } else if (wybor == '-') {
         odejmij(a, b);
-    }else if(wybor == '/'){
+    } else if (wybor == '/') {
         dziel(a, b);
-    }else{
+    } else {
         puts("Nie znam dzialania!");
         return 0;
     }
     return 1;
 }
 
-int main(void)
-{
-    int a, b;
+int main(void) {
+    double a, b;
     char wybor;
     int czy_dalej = 1;
 
-    while(czy_dalej == 1){
-        printf("Podaj wartosc argumentu a: "); scanf("%i", &a);
-        printf("Podaj dzialanie: "); scanf(" %c", &wybor);
-        printf("Podaj wartosc argumentu b: "); scanf("%i", &b);
+    while (czy_dalej == 1) {
+        printf("Podaj wartosc argumentu a: ");
+        scanf("%lf", &a);
+        printf("Podaj dzialanie: ");
+        scanf(" %c", &wybor);
+        printf("Podaj wartosc argumentu b: ");
+        scanf("%lf", &b);
 
         licz(a, b, wybor);
 
